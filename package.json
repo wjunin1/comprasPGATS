@@ -1,0 +1,14 @@
+{
+  "name": "compraspgats",
+  "version": "1.0.0",
+  "description": "Trabalho de conclusão PGATS",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.test.js"
+  },
+  "author": "Wellington Pereira da Silva Júnior",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.4.0"
+  }
+}
