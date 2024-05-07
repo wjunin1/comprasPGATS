@@ -1,11 +1,21 @@
-const ferramentas = [
-    { nome: "UFT", preco: 100, fabricante: "OpenText" },
-{ nome: "TestComplete", preco: 200, fabricante: "Smartbear" },
-    { nome: "TOSCA", preco: 300, fabricante: "Tricents" }
-];
+const calcularTotal = (ferramentas, comprar) => {
+    let total = 0;
 
-const comprar = [ "UFT", "TOSCA" ];
+    if (ferramentas.length === 0 || comprar.length === 0) {
+        throw new Error("Ambas as listas precisam ter ao menos um item.");
+    }
 
-const resultado = calcularTotal(ferramentas, comprar);
+    const verificarFerramentas = ferramentas.filter(ferramenta => comprar.includes(ferramenta.nome));
 
-module.exports = calcularTotal;
+    if (verificarFerramentas.length !== comprar.length) {
+        throw new Error("Nenhuma ferramenta desejada encontrada.");
+    }
+
+    verificarFerramentas.forEach(ferramenta => {
+        total += ferramenta.preco;
+    });
+
+    return "O valor a pagar pelas ferramentas (UFT, TOSCA) é R$ " + total.toFixed(2);
+}
+
+module.exports = { calcularTotal } ;
